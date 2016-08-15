@@ -3,6 +3,7 @@ var path=require('path');
 var mongoose=require('mongoose');  
 var _ =require('underscore');               //有extend方法，对象中新字段替换老字段
 var Movie=require('./models/movie');        
+var User=require('./models/user');              //用户登录模型
 var port=process.env.PORT || 3000;
 var app=express();
 var bodyParser= require('body-parser');
@@ -31,6 +32,12 @@ app.get('/',function(req,res){
     movies:movies
 	});
 	})    
+})
+
+//signup
+app.post('/user/signup',function(req,res){
+	var _user=req.body.user;
+	console.log(_user);
 })
 
 //detail.page
